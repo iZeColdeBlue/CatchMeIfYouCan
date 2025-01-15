@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-//using TMPro;
+using TMPro;
 using UnityEngine;
 
 using Windows.Kinect;
@@ -10,11 +10,9 @@ public class PlayerMover : MonoBehaviour
 {
     public BodySourceManager mBodySourceManager;
 
-    /*
-     * public TextMeshProUGUI LeanX;
+    public TextMeshProUGUI LeanX;
     public TextMeshProUGUI LeanZ;
     public TextMeshProUGUI Direction;
-    */
 
     private Dictionary<ulong, GameObject> mBodies = new Dictionary<ulong, GameObject>();
     private List<JointType> mJoints = new List<JointType>
@@ -81,7 +79,7 @@ public class PlayerMover : MonoBehaviour
                 HipPos = currentPosition;
             }
 
-            //SetPositionText();
+            SetPositionText();
 
         }
 
@@ -95,14 +93,12 @@ public class PlayerMover : MonoBehaviour
     }
 
 
-    /*
     private void SetPositionText()
     {
         LeanX.text = "Head Pos X: " + HeadPos.x + "Hip Pos X: " + HipPos.x;
         LeanZ.text = "Head Pos Z: " + HeadPos.z + "Hip Pos Z: " + HipPos.z;
         Direction.text = "Direction: " + LeanDirection.x + LeanDirection.y + LeanDirection.z;
     }
-    */
 }
 
 
