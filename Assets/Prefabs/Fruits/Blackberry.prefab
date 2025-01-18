@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3759305577296238159}
   - component: {fileID: 2550815974149109189}
   - component: {fileID: 8334700154655599861}
+  - component: {fileID: 5839677253761694824}
   m_Layer: 0
   m_Name: Blackberry
   m_TagString: catchableObject
@@ -98,3 +99,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &5839677253761694824
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846157071370868939}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.009981773
+  m_Center: {x: 0, y: 0, z: 0}

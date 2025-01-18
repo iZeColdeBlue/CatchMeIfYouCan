@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 217787260112616708}
   - component: {fileID: 1590625101786669387}
+  - component: {fileID: 4584502124598420121}
   m_Layer: 0
   m_Name: Strawberry
   m_TagString: catchableObject
@@ -46,6 +47,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7746e1b1cb5e549ab537aa7b965ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &4584502124598420121
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222670984867515758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.008
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6730056208285377850
 GameObject:
   m_ObjectHideFlags: 0
