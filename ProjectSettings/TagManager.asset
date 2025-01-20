@@ -9,6 +9,8 @@ TagManager:
   - Environment
   - catchableFruit
   - catchableSweet
+  - catchableObject
+  - Heart
   layers:
   - Default
   - TransparentFX

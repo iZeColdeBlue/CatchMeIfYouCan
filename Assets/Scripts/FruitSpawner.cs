@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -9,13 +9,14 @@ public class NewBehaviourScript : MonoBehaviour
     public GameObject[] Sweets;
 
     public float spawnPeriod = 10;
-    public float fallSpeed;
     public int counter;
 
     private int maxNumObjects = 5;
     private int currentNumObjects = 0;
     private PlayerController playerController;
+
     private bool hasIncreased = false;
+    private bool haveSpawned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,34 +34,45 @@ public class NewBehaviourScript : MonoBehaviour
         catchableFruits.CopyTo(allObjects, 0);
         catchableSweets.CopyTo(allObjects, catchableFruits.Length);
         currentNumObjects = allObjects.Length;
-        Debug.Log(currentNumObjects);
+        // Debug.Log(currentNumObjects);
 
-        if (currentNumObjects < maxNumObjects)
+        if (currentNumObjects < maxNumObjects && !haveSpawned)
         {
-            //decides if spawned Object is a fruit or a sweet
-            int randSelect = Random.Range(1, 4);
-            if (randSelect == 1)
+            for (int i = 0; i < maxNumObjects - 1; i++)
             {
                 SpawnSweet();
             }
-            else
-            {
-                SpawnFruit();
-            }
+            SpawnFruit();
+
+            haveSpawned = true;
+
+        }else if (currentNumObjects == 0)
+        {
+            haveSpawned = false;
         }
 
         // Increase maxNumObjects and fallSpeed only if counter is divisible by 10 and maxNumObjects is less than a certain limit
-        if (playerController.counter % 10 == 0 && playerController.counter != 0 && !hasIncreased && maxNumObjects <= 10)
+        if (playerController.counter % 10 == 0 && playerController.counter != 0 && !hasIncreased)
         {
-            maxNumObjects++;
-            fallSpeed += 10f;
-            hasIncreased = true; // Setze die Variable auf true, um anzuzeigen, dass die Erhöhung stattgefunden hat
-        }
-        else if (playerController.counter % 10 != 0)
+            if (maxNumObjects <= 10)
+            {
+                maxNumObjects++;
+                Debug.Log("Increasing  Max Num Objects");
+            }
+
+
+            hasIncreased = true; 
+            Debug.Log(hasIncreased);
+        } 
+        
+        if (playerController.counter % 10 != 0 && hasIncreased)
         {
-            hasIncreased = false; // Setze die Variable zurück, wenn der counter nicht mehr durch 10 teilbar ist
+            hasIncreased = false;
         }
+
+        Debug.Log("Max Num Objects: " + maxNumObjects);
     }
+
 
     void SpawnFruit()
     {

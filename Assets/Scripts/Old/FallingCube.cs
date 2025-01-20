@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class FallingCube : MonoBehaviour
 {
-    public float fallSpeed = 10f; //make this random so Objects fall at different speeds
-    //would be cool, if they would spin
+    public float fallSpeed = 3f;
 
     private PlayerController playerController;
+    private LifeTracker lifeTracker;
 
-    private Vector3 spinSpeed;
+    private Vector3 spinSpeed = new Vector3(0, 90f, 0);
 
     void Start()
     {
@@ -21,17 +21,26 @@ public class FallingCube : MonoBehaviour
         // Find the PlayerController in the scene
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 
-        spinSpeed = new Vector3(0, 90f, 0);
+        // Find the LifeTracker in the scene
+        lifeTracker = FindObjectOfType<LifeTracker>();
+
+        for (int i = 0; i < playerController.counter / 10; i++)
+        {
+            fallSpeed += 0.5f;
+        }
     }
 
     void Update()
     {
         transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
-
         transform.Rotate(spinSpeed * Time.deltaTime);
 
         if (transform.position.y < -1f) // if object is below -1f(ground) destroy it
         {
+            if (CompareTag("catchableFruit"))
+            {
+                lifeTracker.clearLife();
+            }
             Destroy(gameObject);
         }
     }
@@ -40,9 +49,13 @@ public class FallingCube : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (CompareTag("catchableSweet"))
+            {
+                lifeTracker.clearLife();
+            }
+
             //if player catches the falling cube, destroy the cube
-            Debug.Log("Player touched FallingCube. Destroying the cube.");
-            Destroy(gameObject); //destrys falling cube
+            Destroy(gameObject);
 
             // Call IncreaseScore function in PlayerController
             if (playerController != null)
@@ -53,9 +66,13 @@ public class FallingCube : MonoBehaviour
 
         if (other.CompareTag("Environment"))
         {
+            if (CompareTag("catchableFruit"))
+            {
+                lifeTracker.clearLife();
+            }
+
             //if player catches the falling cube, destroy the cube
-            //Debug.Log("Player touched FallingCube. Destroying the cube.");
-            Destroy(gameObject); //destrys falling cube
+            Destroy(gameObject);
         }
     }
 }

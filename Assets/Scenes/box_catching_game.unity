@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 384279108}
   m_Layer: 5
   m_Name: Heart3
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384279106}
   m_LocalRotation: {x: -0, y: -0.0022108066, z: -0, w: 0.9999976}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.79999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.253, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 446.69995, y: 268.5}
+  m_AnchoredPosition: {x: 356.7, y: 247.70001}
   m_SizeDelta: {x: 46.9815, y: 44.0521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384279108
@@ -204,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445697812}
   - component: {fileID: 445697813}
+  - component: {fileID: 445697814}
   m_Layer: 0
   m_Name: FruitSpawner
   m_TagString: Untagged
@@ -255,6 +256,25 @@ MonoBehaviour:
   - {fileID: 75590751742755571, guid: 2f7de28cf9fd2ca429c0809f87a5f326, type: 3}
   - {fileID: 6472899423268013946, guid: c4ef474165817034e8953a8895b6e346, type: 3}
   spawnPeriod: 10
+  counter: 0
+--- !u!114 &445697814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445697810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0c81707d87f44449b2d5022081efa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLifes: 4
+  hearts:
+  - {fileID: 1621958703}
+  - {fileID: 1791664054}
+  - {fileID: 384279106}
+  - {fileID: 873979146}
 --- !u!1 &625658648
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  counter: 0
   mBodySourceManager: {fileID: 1713418389}
   LeanX: {fileID: 625658650}
   LeanZ: {fileID: 1183672143}
@@ -772,7 +793,7 @@ GameObject:
   - component: {fileID: 873979148}
   m_Layer: 5
   m_Name: Heart4
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -785,7 +806,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873979146}
   m_LocalRotation: {x: -0, y: -0.0022108066, z: -0, w: 0.9999976}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -793,7 +814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.253, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 501, y: 268}
+  m_AnchoredPosition: {x: 300.9, y: 247.7}
   m_SizeDelta: {x: 46.9815, y: 44.0521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &873979148
@@ -1084,10 +1105,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2131694768}
-  - {fileID: 1621958704}
-  - {fileID: 1791664055}
-  - {fileID: 384279107}
   - {fileID: 873979147}
+  - {fileID: 384279107}
+  - {fileID: 1791664055}
+  - {fileID: 1621958704}
   - {fileID: 1792560830}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1333,7 +1354,7 @@ GameObject:
   - component: {fileID: 1621958705}
   m_Layer: 5
   m_Name: Heart1
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1346,7 +1367,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621958703}
   m_LocalRotation: {x: -0, y: -0.0022108066, z: -0, w: 0.9999976}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.8000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1354,7 +1375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.253, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 337.59998, y: 265.8}
+  m_AnchoredPosition: {x: 468.40002, y: 247.70001}
   m_SizeDelta: {x: 46.9815, y: 44.0521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1621958705
@@ -1473,7 +1494,7 @@ GameObject:
   - component: {fileID: 1791664056}
   m_Layer: 5
   m_Name: Heart2
-  m_TagString: Untagged
+  m_TagString: Heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1486,7 +1507,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791664054}
   m_LocalRotation: {x: -0, y: -0.0022108066, z: -0, w: 0.9999976}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.3000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1494,7 +1515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0.253, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 393.49997, y: 266.3}
+  m_AnchoredPosition: {x: 413.50003, y: 247.70001}
   m_SizeDelta: {x: 46.9815, y: 44.0521}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1791664056
@@ -1566,7 +1587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433, y: 269}
+  m_AnchoredPosition: {x: -404.1, y: 254.5}
   m_SizeDelta: {x: 181.0659, y: 36.472}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792560831
