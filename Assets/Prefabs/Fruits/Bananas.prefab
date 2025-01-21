@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2189895917308337364}
   - component: {fileID: 8166430924254964006}
   - component: {fileID: 5491115036526506534}
+  - component: {fileID: 3325951081586339926}
   m_Layer: 0
   m_Name: Bananas
   m_TagString: catchableObject
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7746e1b1cb5e549ab537aa7b965ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallSpeed: 3
 --- !u!33 &8166430924254964006
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -98,3 +100,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &3325951081586339926
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6982576626585797855}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.045766577
+  m_Center: {x: 0, y: 0, z: 0}

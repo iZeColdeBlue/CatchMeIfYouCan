@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7164736442307282411}
   - component: {fileID: 7335690956241043353}
   - component: {fileID: 7907029280297878461}
+  - component: {fileID: -6327783775781883131}
   m_Layer: 0
   m_Name: Watermelon
   m_TagString: catchableObject
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7746e1b1cb5e549ab537aa7b965ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallSpeed: 3
 --- !u!33 &7335690956241043353
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -98,3 +100,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &-6327783775781883131
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3565012246243240426}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.015379157
+  m_Center: {x: 0.0044395784, y: -0.0000000024216242, z: 0.011375309}

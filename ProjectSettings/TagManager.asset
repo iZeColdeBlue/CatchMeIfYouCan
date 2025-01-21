@@ -5,7 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - FallingCube
+  - Light
+  - Environment
+  - catchableFruit
+  - catchableSweet
   - catchableObject
+  - Heart
   layers:
   - Default
   - TransparentFX

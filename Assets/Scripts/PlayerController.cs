@@ -1,19 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Windows.Kinect;
-
 using Joint = Windows.Kinect.Joint;
 
 public class PlayerController : MonoBehaviour
 {
-    // public float speed = 5f;
-
+    public float speed = 5f;
+    public int counter = 0;
     public BodySourceManager mBodySourceManager;
 
     public Text LeanX;
     public Text LeanZ;
     public Text Direction;
+    public Text ScoreText;
 
     public GameObject catcher; // Das spielbare Objekt
 
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        /*
         #region Get Kinect Data
         Body[] data = mBodySourceManager.GetData();
         if (data == null)
@@ -62,18 +63,19 @@ public class PlayerController : MonoBehaviour
             }
         }
         #endregion
+        */
 
-        MovePlayer(HipPos);
+      //  MovePlayer(HipPos);
 
 
-        /*
+        
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveX, 0, moveZ);
 
         //move player
         transform.Translate(movement * speed * Time.deltaTime);
-        */
+        
     }
 
     private void UpdateJointPosition(Body body)
@@ -116,7 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         // Skalieren der realen Position auf den Spielbereich
         float scaledX = Map(hipPosition.x, realAreaX.x, realAreaX.y, gameAreaX.x, gameAreaX.y);
-        float scaledZ = Map(hipPosition.z, realAreaZ.x, realAreaZ.y, gameAreaX.x, gameAreaX.y);
+        float scaledZ = Map(hipPosition.z, realAreaZ.y, realAreaZ.x, gameAreaZ.x, gameAreaZ.y);
 
         // Spielerposition aktualisieren
         catcher.transform.position = new Vector3(scaledX, catcher.transform.position.y, scaledZ);
@@ -126,4 +128,16 @@ public class PlayerController : MonoBehaviour
     {
         return (value - fromMin) / (fromMax - fromMin) * (toMax - toMin) + toMin;
     }
+
+    public void IncreaseScore()
+    {
+        counter++;
+        SetScore();
+    }
+
+    private void SetScore()
+    {
+        ScoreText.text = "Score: " + counter;
+    }
 }
+
