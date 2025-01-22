@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FallingCube : MonoBehaviour
 {
-    private float fallSpeed = 1f;
+    private float fallSpeed = 1.5f;
 
     private PlayerController playerController;
     private LifeTracker lifeTracker;

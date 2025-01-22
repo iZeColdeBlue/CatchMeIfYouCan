@@ -6,17 +6,21 @@ using UnityEngine.SceneManagement;
 public class LifeTracker : MonoBehaviour
 {
     public int currentLifes;
+    public static int finalScore = 0;
+
     public GameObject[] hearts;
 
     public bool lostLife = false;
 
     public AudioPlayer audioPlayer;
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
         currentLifes = hearts.Length;
         audioPlayer = FindObjectOfType<AudioPlayer>();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -26,7 +30,8 @@ public class LifeTracker : MonoBehaviour
         {
             SceneManager.LoadScene("Game over");
             audioPlayer.playDeath();
-        }
+            finalScore = playerController.counter;
+}
     }
 
     public void clearLife()
@@ -36,7 +41,6 @@ public class LifeTracker : MonoBehaviour
             hearts[currentLifes - 1].SetActive(false);
             currentLifes--;
             audioPlayer.playMiss();
-
             lostLife = true;
         }
     }

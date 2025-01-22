@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.XR.OpenVR;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     public int counter = 0;
+
     public BodySourceManager mBodySourceManager;
 
     public Text LeanX;
@@ -40,6 +42,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 gameAreaZ = new Vector2(-5f, 5f);
     private Vector2 realAreaX = new Vector2(-5, 5);
     private Vector2 realAreaZ = new Vector2(10, 23);
+
+
+
 
     void Update()
     {
@@ -150,6 +155,7 @@ public class PlayerController : MonoBehaviour
     {
         counter++;
         SetScore();
+        
     }
 
     private void SetScore()

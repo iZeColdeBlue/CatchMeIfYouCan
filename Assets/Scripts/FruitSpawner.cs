@@ -72,7 +72,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         do
         {
-            spawnPosition = new Vector3(Random.Range(-4f, 4f), 10f, Random.Range(-4f, 4f));
+            spawnPosition = new Vector3(Random.Range(-4f, 4f), 8f, Random.Range(-4f, 4f));
             positionIsValid = true;
 
             foreach (var usedPosition in usedPositions)
@@ -105,7 +105,7 @@ public class NewBehaviourScript : MonoBehaviour
     void increaseDifficulty()
     {
         // Increase maxNumObjects and fallSpeed only if counter is divisible by 10 and maxNumObjects is less than a certain limit
-        if (playerController.counter % 10 == 0 && playerController.counter != 0 && !hasIncreased)
+        if (playerController.counter % 5 == 0 && playerController.counter != 0 && !hasIncreased)
         {
             if (maxNumObjects <= 10)
             {

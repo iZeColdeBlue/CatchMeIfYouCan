@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Windows.Kinect;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using Joint = Windows.Kinect.Joint;
 
 public class PlayerMover : MonoBehaviour
