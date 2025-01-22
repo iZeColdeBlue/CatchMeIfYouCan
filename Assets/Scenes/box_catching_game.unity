@@ -788,7 +788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7bae15a77f75b124d8c58b66493ca5c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00028994307
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7bae15a77f75b124d8c58b66493ca5c6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -796,7 +796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7bae15a77f75b124d8c58b66493ca5c6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0023672623
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7bae15a77f75b124d8c58b66493ca5c6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1474,6 +1474,7 @@ MonoBehaviour:
   - {fileID: 1791664054}
   - {fileID: 384279106}
   - {fileID: 873979146}
+  lostLife: 0
   audioPlayer: {fileID: 0}
 --- !u!82 &445697815
 AudioSource:
@@ -5548,6 +5549,7 @@ MonoBehaviour:
   realX: 0
   realZ: 0
   catcher: {fileID: 1774017584}
+  isActive: 0
 --- !u!65 &1774017586
 BoxCollider:
   m_ObjectHideFlags: 0

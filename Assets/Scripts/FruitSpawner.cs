@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -20,6 +20,9 @@ public class NewBehaviourScript : MonoBehaviour
     private bool hasIncreased = false;
     private bool haveSpawned = false;
 
+    private List<Vector3> usedPositions = new List<Vector3>();
+    private float minDistance = 0.75f; // Mindestabstand zwischen den Objekten
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,21 +39,18 @@ public class NewBehaviourScript : MonoBehaviour
         {
             spawnWave(); //spawns a wave of catchable objects
         }
-       
-
 
         increaseDifficulty(); //increases difficulty by increasing maxNumObjects and fallSpeed
 
         Debug.Log("Max Num Objects: " + maxNumObjects);
     }
 
-
     void SpawnFruit()
     {
         GameObject newFruit = Fruits[Random.Range(0, Fruits.Length)]; //selects a random fruit from the array
 
         //spawn position is randomized & tag is assigned
-        Vector3 spawnPosition = new Vector3(Random.Range(-4f, 4f), 10f, Random.Range(-4f, 4f));
+        Vector3 spawnPosition = GetUniqueSpawnPosition();
         GameObject instantiatedFruit = Instantiate(newFruit, spawnPosition, Quaternion.identity);
         instantiatedFruit.tag = "catchableFruit";
     }
@@ -60,9 +60,33 @@ public class NewBehaviourScript : MonoBehaviour
         GameObject newSweet = Sweets[Random.Range(0, Sweets.Length)]; //selects a random sweet from the array
 
         //spawn position is randomized & tag is assigned
-        Vector3 spawnPosition = new Vector3(Random.Range(-4f, 4f), 10f, Random.Range(-4f, 4f));
+        Vector3 spawnPosition = GetUniqueSpawnPosition();
         GameObject instantiatedSweet = Instantiate(newSweet, spawnPosition, Quaternion.identity);
         instantiatedSweet.tag = "catchableSweet";
+    }
+
+    Vector3 GetUniqueSpawnPosition()
+    {
+        Vector3 spawnPosition;
+        bool positionIsValid;
+
+        do
+        {
+            spawnPosition = new Vector3(Random.Range(-4f, 4f), 10f, Random.Range(-4f, 4f));
+            positionIsValid = true;
+
+            foreach (var usedPosition in usedPositions)
+            {
+                if (Vector3.Distance(spawnPosition, usedPosition) < minDistance)
+                {
+                    positionIsValid = false;
+                    break;
+                }
+            }
+        } while (!positionIsValid);
+
+        usedPositions.Add(spawnPosition);
+        return spawnPosition;
     }
 
     void countObjects()         //counts all objects that are catchable
@@ -89,7 +113,6 @@ public class NewBehaviourScript : MonoBehaviour
                 Debug.Log("Increasing  Max Num Objects");
             }
 
-
             hasIncreased = true;
             Debug.Log(hasIncreased);
         }
@@ -104,6 +127,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (currentNumObjects < maxNumObjects && !haveSpawned)
         {
+            usedPositions.Clear(); // Clear used positions before spawning a new wave
+
             for (int i = 0; i < maxNumObjects - 1; i++)
             {
                 SpawnSweet();
@@ -111,7 +136,6 @@ public class NewBehaviourScript : MonoBehaviour
             SpawnFruit();
 
             haveSpawned = true;
-
         }
         else if (currentNumObjects == 0)
         {
@@ -120,3 +144,4 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 }
+
