@@ -47,6 +47,11 @@ public class FallingCube : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (lifeTracker.lostLife)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -66,6 +71,7 @@ public class FallingCube : MonoBehaviour
             {
                 playerController.IncreaseScore();
                 audioPlayer.playCollect();
+                lifeTracker.lostLife = true;
             }
         }
 

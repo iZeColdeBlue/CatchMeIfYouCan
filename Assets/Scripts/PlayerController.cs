@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject catcher; // Das spielbare Objekt
 
+    public bool isActive = false;
+
     private Dictionary<ulong, GameObject> mBodies = new Dictionary<ulong, GameObject>();
     private List<JointType> mJoints = new List<JointType>
     {
@@ -80,6 +82,14 @@ public class PlayerController : MonoBehaviour
         //move player
         transform.Translate(movement * speed * Time.deltaTime);
         */
+
+        if (HipPos.z != 0 && HipPos.x !=0)
+        {
+            isActive = true;
+        }else if (HipPos.x == 0 && HipPos.z == 0)
+        {
+            isActive = false;
+        }
     }
 
     private void UpdateJointPosition(Body body)
@@ -122,7 +132,9 @@ public class PlayerController : MonoBehaviour
     {
         // Skalieren der realen Position auf den Spielbereich
         float scaledX = Map(hipPosition.x, realAreaX.x, realAreaX.y, gameAreaX.x, gameAreaX.y);
-        float scaledZ = Map(hipPosition.z, realAreaZ.x, realAreaZ.y, gameAreaZ.x, gameAreaZ.y);
+
+        float scaledZ = Map(hipPosition.z, realAreaZ.y, realAreaZ.x, gameAreaZ.x, gameAreaZ.y);
+       // float scaledZ = Map(hipPosition.z, realAreaZ.x, realAreaZ.y, gameAreaZ.x, gameAreaZ.y);
 
         // Spielerposition aktualisieren
         catcher.transform.position = new Vector3(scaledX, 0.069f, scaledZ);

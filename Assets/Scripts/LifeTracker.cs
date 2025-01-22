@@ -8,6 +8,8 @@ public class LifeTracker : MonoBehaviour
     public int currentLifes;
     public GameObject[] hearts;
 
+    public bool lostLife = false;
+
     public AudioPlayer audioPlayer;
 
     // Start is called before the first frame update
@@ -34,6 +36,8 @@ public class LifeTracker : MonoBehaviour
             hearts[currentLifes - 1].SetActive(false);
             currentLifes--;
             audioPlayer.playMiss();
+
+            lostLife = true;
         }
     }
 }
