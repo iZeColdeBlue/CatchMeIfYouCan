@@ -27,12 +27,11 @@ public class AudioPlayer : MonoBehaviour
     public void playDeath()
     {
         music.Stop();
-        audioSource.PlayOneShot(failSound);
-
     }
 
     public void playMiss()
     {
         audioSource.PlayOneShot(looseLife);
+        // Debug.Log("Missed Fruit");
     }
 }

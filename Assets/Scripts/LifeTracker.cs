@@ -8,10 +8,13 @@ public class LifeTracker : MonoBehaviour
     public int currentLifes;
     public GameObject[] hearts;
 
+    public AudioPlayer audioPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
         currentLifes = hearts.Length;
+        audioPlayer = FindObjectOfType<AudioPlayer>();
     }
 
     // Update is called once per frame
@@ -20,6 +23,7 @@ public class LifeTracker : MonoBehaviour
         if (currentLifes == 0)
         {
             SceneManager.LoadScene("Game over");
+            audioPlayer.playDeath();
         }
     }
 
@@ -29,6 +33,7 @@ public class LifeTracker : MonoBehaviour
         {
             hearts[currentLifes - 1].SetActive(false);
             currentLifes--;
+            audioPlayer.playMiss();
         }
     }
 }

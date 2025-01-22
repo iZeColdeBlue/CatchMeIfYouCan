@@ -9,6 +9,8 @@ public class FallingCube : MonoBehaviour
 
     private Vector3 spinSpeed = new Vector3(0, 90f, 0);
 
+    public AudioPlayer audioPlayer;
+
     void Start()
     {
         // Ensure the collider is set as a trigger
@@ -23,6 +25,7 @@ public class FallingCube : MonoBehaviour
 
         // Find the LifeTracker in the scene
         lifeTracker = FindObjectOfType<LifeTracker>();
+        audioPlayer = FindObjectOfType<AudioPlayer>();
 
         for (int i = 0; i < playerController.counter / 10; i++)
         {
@@ -59,9 +62,10 @@ public class FallingCube : MonoBehaviour
             Destroy(gameObject);
 
             // Call IncreaseScore function in PlayerController
-            if (playerController != null)
+            if (playerController != null && CompareTag("catchableFruit"))
             {
                 playerController.IncreaseScore();
+                audioPlayer.playCollect();
             }
         }
 

@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 237265773}
   - component: {fileID: 237265772}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: BackgroundMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,6 +405,7 @@ MonoBehaviour:
   - {fileID: 1791664054}
   - {fileID: 384279106}
   - {fileID: 873979146}
+  audioPlayer: {fileID: 0}
 --- !u!114 &445697815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,10 +418,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7abc0a1a4862448b2b13fd81af3e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  looseLife: {fileID: 8300000, guid: 5200971dbc7703b48a71a29c4a33f782, type: 3}
-  failSound: {fileID: 8300000, guid: 088e4d37df3779045a712312f01d047c, type: 3}
+  looseLife: {fileID: 8300000, guid: 088e4d37df3779045a712312f01d047c, type: 3}
+  failSound: {fileID: 8300000, guid: 82d2b1d4b1beec94e8567bebb7708fa0, type: 3}
   pointSound: {fileID: 8300000, guid: 391d86c7e84b4c849ad9b3324b6eb1da, type: 3}
-  music: {fileID: 445697816}
+  music: {fileID: 237265772}
 --- !u!82 &445697816
 AudioSource:
   m_ObjectHideFlags: 0
