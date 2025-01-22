@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FallingCube : MonoBehaviour
 {
-    public float fallSpeed = 3f;
+    private float fallSpeed = 1f;
 
     private PlayerController playerController;
     private LifeTracker lifeTracker;
@@ -41,6 +41,7 @@ public class FallingCube : MonoBehaviour
             {
                 lifeTracker.clearLife();
             }
+
             Destroy(gameObject);
         }
     }

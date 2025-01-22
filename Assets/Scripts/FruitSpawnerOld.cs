@@ -6,8 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] GameObject foodPrefab; //object to spawn
     [SerializeField] float spawnPeriod = 2f; //spawn period
-    [SerializeField] float velocity = 0f; //velocity to bottom which makes game harder
-    [SerializeField] float periodAdder = 0.1f; //add more fruits every sec
+    [SerializeField] float velocity = 0f; //velocity to bottom which makes game harder 
 
     [SerializeField] Sprite[] sprites; //diffrent sprites for foods
 

@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     public Text Direction;
     public Text ScoreText;
 
+    public float realX;
+    public float realZ;
+
     public GameObject catcher; // Das spielbare Objekt
 
     private Dictionary<ulong, GameObject> mBodies = new Dictionary<ulong, GameObject>();
@@ -33,12 +36,12 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 gameAreaX = new Vector2 (-5f, 5f);
     private Vector2 gameAreaZ = new Vector2(-5f, 5f);
-    private Vector2 realAreaX = new Vector2(-10, 10);
-    private Vector2 realAreaZ = new Vector2(7, 45);
+    private Vector2 realAreaX = new Vector2(-5, 5);
+    private Vector2 realAreaZ = new Vector2(10, 23);
 
     void Update()
     {
-        /*
+        
         #region Get Kinect Data
         Body[] data = mBodySourceManager.GetData();
         if (data == null)
@@ -63,19 +66,20 @@ public class PlayerController : MonoBehaviour
             }
         }
         #endregion
-        */
-
-      //  MovePlayer(HipPos);
-
-
         
+
+        MovePlayer(HipPos);
+        realX = HipPos.x;
+        realZ = HipPos.z;
+
+        /*
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveX, 0, moveZ);
 
         //move player
         transform.Translate(movement * speed * Time.deltaTime);
-        
+        */
     }
 
     private void UpdateJointPosition(Body body)
@@ -94,7 +98,7 @@ public class PlayerController : MonoBehaviour
                 HipPos = currentPosition;
             }
 
-            SetPositionText();
+           // SetPositionText();
 
         }
 
@@ -118,10 +122,11 @@ public class PlayerController : MonoBehaviour
     {
         // Skalieren der realen Position auf den Spielbereich
         float scaledX = Map(hipPosition.x, realAreaX.x, realAreaX.y, gameAreaX.x, gameAreaX.y);
-        float scaledZ = Map(hipPosition.z, realAreaZ.y, realAreaZ.x, gameAreaZ.x, gameAreaZ.y);
+        float scaledZ = Map(hipPosition.z, realAreaZ.x, realAreaZ.y, gameAreaZ.x, gameAreaZ.y);
 
         // Spielerposition aktualisieren
-        catcher.transform.position = new Vector3(scaledX, catcher.transform.position.y, scaledZ);
+        catcher.transform.position = new Vector3(scaledX, 0.069f, scaledZ);
+        catcher.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private float Map(float value, float fromMin, float fromMax, float toMin, float toMax)
